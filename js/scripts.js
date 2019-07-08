@@ -211,6 +211,43 @@ $('#btnSubmit').unbind().click(function (e) {
 
 });
 
+$('#btnDelete').unbind().click(function (e) {
+    
+    // var newtype = document.getElementById("btnSubmit").data('newtype');
+    var modal = $(this)
+    var newtype = modal.data('newtype');
+     var ogname = $("#exampleModal").find('.modal-title').text();
+     if (!newtype) {
+         $.each(importedJSON, function(index, element) {
+         if (index == "Types") {
+             $.each(element, function(indx, elemnt) {
+                 //console.log(elemnt.displayName);
+                 
+                     if (elemnt.displayName == ogname.substring(15)){
+                         delete elemnt.displayName;
+                         delete elemnt.typeName;
+                         delete elemnt.commands;
+                         delete elemnt.SpecificMaps;
+                         element.splice(indx,1);
+
+                         return false;
+                     }
+                 
+                 
+ 
+             });
+         }
+         
+         });
+     }
+     console.log(importedJSON);
+     loadLists(importedJSON);
+     
+ 
+ });
+ 
+
+
 $('#exampleModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var displaynome = button.data('dispname') // Extract info from data-* attributes
