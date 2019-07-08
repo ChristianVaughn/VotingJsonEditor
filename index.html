@@ -1,0 +1,124 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Voting Json Editor</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link href="css/base.css" rel="stylesheet">
+	<link href="css/temp.css" rel="stylesheet">
+
+</head>
+
+<body>
+ <div class="container" id="splashscreen">
+    <div class="">
+    <div class="card">
+      <div class="head">
+        <img src = "logo.png"height="100" width="78"/>
+        <h4 style = "white-space: nowrap;">
+           Voting Json Editor v1.0</h4>
+      </div>
+      <div class="content">
+        <div class="body">
+          <p>Click New JSON or Open JSON  </p>
+          <p>to get started</p>
+        </div>
+        <div class="footer">
+
+        </div>
+      </div>
+    </div>
+      </div>
+  </div> 
+    <div hidden class="container-fluid variantGroup" id="bob">
+        <h1 class="h5 font-weight-normal" style="-webkit-app-region: drag">Variant Editor v0.1</h1>
+        <div id="mapsListDiv" class="list-group list-group-flush addBorder">
+          <div id = "nodelete" class="list-group-item disabled list-group-info">
+            <div class="variantContent">Display Name</div>
+            <div class="variantContent">Type Name</div>
+            <div class="variantContent">Start Commands</div>
+            <div class="variantContent">Specific Maps</div>
+          </div>
+          
+
+<!-- <button data-toggle="modal" data-target="#exampleModal" data-dispname="TEST" data-typename="TESsT" data-cmds="a" data-spefmaps="b" type="button" id="variant2dis" href="#variant2" data-toggle="collapse" aria-expanded="false" aria-controls="variant2" class="list-group-item">
+  <div class="variantContent" id="displayNameTop2">TEST</div>
+  <div class="variantContent" id="typeNameTop2">TESsT</div>
+  <div class="variantContent" id="commandsTop2">1</div>
+  <div class="variantContent" id="mapsTop2">12</div>
+</button>
+<button type="button" id="variant3dis" href="#variant3" data-toggle="collapse" aria-expanded="false" aria-controls="variant3" class="list-group-item">
+  <div class="variantContent" id="displayNameTop3">TAST</div>
+  <div class="variantContent" id="typeNameTop3">TeRST</div>
+  <div class="variantContent" id="commandsTop3">3</div>
+  <div class="variantContent" id="mapsTop3">6</div>
+</button> -->
+        </div>
+          <button type="button" id="AddVariant" class="btn btn-success btn-lg btn-block"  data-toggle="modal" data-target="#exampleModal" data-dispname="New Variant" data-newtype="true">Add Variant</button>
+          <div id="tmpDis"></div>
+      </div>
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Display Name (Listed on Screen):</label>
+                  <input type="text" class="form-control" id="display-name">
+                </div>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label">Type Name (Name in files):</label>
+                  <input type="text" class="form-control" id="type-name">
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Commands (Separate by Comma):</label>
+                  <textarea class="form-control" id="commands-text"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="message-text" class="col-form-label">Maps (Filename=Displayname)(Separate by Comma):</label>
+                  <textarea class="form-control" id="maps-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" id="btnSubmit">Save Edits</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>window.$ = window.jQuery = require('jquery');</script>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+
+<script>
+require('electron').ipcRenderer.on('ping', (event, message) => {
+      console.log(message); // Prints 'whoooooooh!'
+      var msg = JSON.parse(message);
+      loadLists(msg);
+
+    })
+
+
+</script>
+
+</body>
+</html>
