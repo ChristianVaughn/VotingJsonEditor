@@ -5,7 +5,6 @@ var fs = require('fs');
 const { dialog } = require('electron')
 const { ipcMain } = require('electron')
 const { autoUpdater } = require("electron-updater")
-autoUpdater.checkForUpdatesAndNotify()
 
 
 
@@ -50,6 +49,7 @@ function createWindow () {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', function() {
+  autoUpdater.checkForUpdatesAndNotify();
   createWindow()
 
   const template = [
