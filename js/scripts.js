@@ -119,20 +119,41 @@ $('#btnSubmit').unbind().click(function (e) {
                         elemnt.commands = input_cmds.split(",");
 
                         var temparray = input_spefMaps.split(",");
-                        var newmaps = "[";
+                        var temp = []
+                        
                         temparray.forEach(function(mappair, i) {
                             //console.log(mappair);
                             var temparray2 = mappair.split("=");
-                            //console.log(mappair);
-                            newmaps = newmaps + "{\"displayName\":\"" + temparray2[1] + "\",\"mapName\":\"" + temparray2[0] + "\"}"
-                            if (i != temparray.length - 1) {
-                                newmaps = newmaps + ", "
-                            }
+
+                            var temp2 = {
+                                "displayName": "DeathCurve.v4",
+                                "mapName": "DeathCurve.v4"
+                            };
+                            temp2.displayName = temparray2[1];
+                            temp2.mapName = temparray2[1];
+                             temp.push(temp2);
+                             var ismapalready = false
+                                $.each(importedJSON, function(index, elementt) {
+                                    if (index == "Maps") {
+                                         $.each(elementt, function(indx, elemntt) {   
+                                         if (elemntt.mapName == temp2.mapName){
+                                            ismapalready = true
+                                         }
+                                        
+                                        }) 
+                                    }
+                                })
+                                if (!ismapalready) {
+                                    importedJSON.Maps[importedJSON.Maps.length] = temp2;
+                                }
+                                
+                             
+
+
+                             //console.log (temp)
                         });    
                     
-                        newmaps = newmaps + "]";
-                        newmaps = newmaps.replace(/(\r\n|\n|\r)/gm, "");
-                        elemnt.SpecificMaps = JSON.parse(newmaps);
+                        elemnt.SpecificMaps = temp;
                     }
                 
                 
@@ -152,52 +173,42 @@ $('#btnSubmit').unbind().click(function (e) {
               "Server.NumberOfTeams 2"
             ],
             "SpecificMaps": [
-              {
+              
+            ]
+          };
+        var temp2 = {
                 "displayName": "DeathCurve.v4",
                 "mapName": "DeathCurve.v4"
-              }
-            ]
-          };
-        var alsotemp = {
-            "Maps": [
-              
-            ],
-            "Types": [
-                {
-                    "displayName": "GooseHunt",
-                    "typeName": "GooseHunt",
-                    "commands": [
-                      "Server.SprintEnabled 0",
-                      "Server.AssassinationEnabled 0",
-                      "Server.NumberOfTeams 2"
-                    ],
-                    "SpecificMaps": [
-                      {
-                        "displayName": "DeathCurve.v4",
-                        "mapName": "DeathCurve.v4"
-                      }
-                    ]
-                  }
-            ]
-          };
+        };
         temp.displayName = input_displayName;
         temp.typeName = input_typeName;
         temp.commands = input_cmds.split(",");
 
         var temparray = input_spefMaps.split(",");
-            var newmaps = "[";
             temparray.forEach(function(mappair, i) {
                 //console.log(mappair);
                 var temparray2 = mappair.split("=");
+                temp2.displayName = temparray2[1];
+                temp2.mapName = temparray2[1];
+                temp.SpecificMaps[temp.SpecificMaps.length] = temp2;
+                var ismapalready = false
+                                $.each(importedJSON, function(index, elementt) {
+                                    if (index == "Maps") {
+                                         $.each(elementt, function(indx, elemntt) {   
+                                         if (elemntt.mapName == temp2.mapName){
+                                            ismapalready = true
+                                         }
+                                        
+                                        }) 
+                                    }
+                                })
+                                if (!ismapalready) {
+                                    importedJSON.Maps[importedJSON.Maps.length] = temp2;
+                                }
+
                 //console.log(mappair);
-                newmaps = newmaps + "{\"displayName\":\"" + temparray2[1] + "\",\"mapName\":\"" + temparray2[0] + "\"}"
-                if (i != temparray.length - 1) {
-                    newmaps = newmaps + ", "
-                }
+
             });    
-            newmaps = newmaps + "]";
-            newmaps = newmaps.replace(/(\r\n|\n|\r)/gm, "");
-            temp.SpecificMaps = JSON.parse(newmaps);
             importedJSON.Types[importedJSON.Types.length] = temp;
             
             
