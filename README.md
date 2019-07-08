@@ -18,3 +18,8 @@ npm start
 ```
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+
+**known issues**
+save button triggers multiple times
+inputs are not checked for errors(not really an issue, but idk)
+maps array is not updated at all, or editable. 
