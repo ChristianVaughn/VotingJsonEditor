@@ -20,7 +20,7 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 825,
+    height: 830,
     icon:'logo2.ico',
     //transparent: true,
     //frame: false,
