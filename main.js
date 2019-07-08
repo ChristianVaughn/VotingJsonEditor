@@ -4,9 +4,9 @@ const path = require('path')
 var fs = require('fs');
 const { dialog } = require('electron')
 const { ipcMain } = require('electron')
-/*require('update-electron-app')({
-  repo: 'cvaughn55/VotingJsonEditor'
-})*/
+const { autoUpdater } = require("electron-updater")
+autoUpdater.checkForUpdatesAndNotify()
+
 
 
 

@@ -1,24 +1,16 @@
 {
   "name": "voting-json-editor",
   "productName": "Voting Json Editor",
-  "version": "0.3.1",
+  "version": "0.3.0",
   "description": "A minimalistic easy to use voting json editor for Eldewrito.",
   "main": "main.js",
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron .",
     "pack": "build --dir",
-    "dist": "build",
-    "publish": "build -p always"
+    "dist": "build"
   },
   "build": {
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "cvaughn55",
-        "repo": "VotingJsonEditor"
-      }
-    ],
     "win": {
       "icon": "build/icon.ico"
     }
@@ -39,7 +31,7 @@
   },
   "dependencies": {
     "boostrap": "^2.0.0",
-    "electron-updater": "^4.0.14",
     "jquery": "^3.4.1"
   }
+  
 }
