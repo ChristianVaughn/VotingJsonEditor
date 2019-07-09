@@ -134,7 +134,7 @@ $('#btnSubmit').unbind().click(function (e) {
                                 "mapName": "DeathCurve.v4"
                             };
                             temp2.displayName = temparray2[1];
-                            temp2.mapName = temparray2[1];
+                            temp2.mapName = temparray2[0];
                              temp.push(temp2);
                              var ismapalready = false
                                 $.each(importedJSON, function(index, elementt) {
@@ -194,7 +194,7 @@ $('#btnSubmit').unbind().click(function (e) {
                 //console.log(mappair);
                 var temparray2 = mappair.split("=");
                 temp2.displayName = temparray2[1];
-                temp2.mapName = temparray2[1];
+                temp2.mapName = temparray2[0];
                 temp.SpecificMaps[temp.SpecificMaps.length] = temp2;
                 var ismapalready = false
                                 $.each(importedJSON, function(index, elementt) {
