@@ -22,10 +22,7 @@ npm start
 
 ## Known Issues
 
-1. save button triggers multiple times
-2. inputs are not checked for errors(not really an issue, but would be a nice feature for a finished package)
-3. maps array is editable, but instead just auto fills from specific maps listed in gametypes section.
-  (possibly add a toggle option for above feature)
+Please send all issues to the issue tracker on the repo. 
   
 ## Screenshot
 ![alt text](https://i.imgur.com/E5rt7up.png)
