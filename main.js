@@ -106,11 +106,11 @@ app.on('ready', function() {
             
             }); 
           }
-    }/*,
+    },
    {
       role: 'toggledevtools' 
 
-    }*/
+    }
   ]
   const menu = Menu.buildFromTemplate(template)
   Menu.setApplicationMenu(menu)

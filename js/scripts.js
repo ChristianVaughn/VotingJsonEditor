@@ -98,13 +98,17 @@ $('#btnSubmit').unbind().click(function (e) {
     
    // var newtype = document.getElementById("btnSubmit").data('newtype');
    var modal = $(this)
-    var newtype = modal.data('newtype');
+    var newtype = false;
     var input_displayName = $("#exampleModal").find('.modal-body #display-name').val();
     var input_typeName = $("#exampleModal").find('.modal-body #type-name').val();
     var input_cmds = $("#exampleModal").find('.modal-body #commands-text').val();
     var input_spefMaps = $("#exampleModal").find('.modal-body #maps-text').val();
     var ogname = $("#exampleModal").find('.modal-title').text();
+    if (ogname == 'New Entry') {
+        newtype = true;
+    }
     if (!newtype) {
+        console.log("EDITIG AN EXISTING ENTRY YOU DUMBO")
         $.each(importedJSON, function(index, element) {
         if (index == "Types") {
             $.each(element, function(indx, elemnt) {
@@ -164,6 +168,7 @@ $('#btnSubmit').unbind().click(function (e) {
         });
     }
     else if (newtype) {
+        console.log("CREATING A NEW TYPE YOU IDIOT")
         var temp =  {
             "displayName": "GooseHunt",
             "typeName": "GooseHunt",
@@ -226,9 +231,9 @@ $('#btnDelete').unbind().click(function (e) {
     
     // var newtype = document.getElementById("btnSubmit").data('newtype');
     var modal = $(this)
-    var newtype = modal.data('newtype');
+    //var newtype = modal.data('newtype');
      var ogname = $("#exampleModal").find('.modal-title').text();
-     if (!newtype) {
+     if (ogname != 'New Entry') {
          $.each(importedJSON, function(index, element) {
          if (index == "Types") {
              $.each(element, function(indx, elemnt) {
@@ -266,13 +271,18 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     var cmnds = button.data('cmds')
     var smaps = button.data('spefmaps')
     var newdata = button.data('newtype')
-    var savebtn = document.getElementById("btnSubmit");
-    savebtn.setAttribute('data-newtype', newdata);
+   //var savebtn = document.getElementById("btnSubmit");
+    //savebtn.setAttribute('data-newtype', newdata);
 
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this)
-    modal.find('.modal-title').text('Editing Entry: ' + displaynome)
+    if (newdata == true) {
+        modal.find('.modal-title').text('New Entry')
+    }
+    else {
+        modal.find('.modal-title').text('Editing Entry: ' + displaynome)
+    }
     modal.find('.modal-body #display-name').val(displaynome)
     modal.find('.modal-body #type-name').val(typname)
     modal.find('.modal-body #commands-text').val(cmnds)
