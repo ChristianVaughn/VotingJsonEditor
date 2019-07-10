@@ -23,6 +23,9 @@ npm start
 ## Known Issues
 
 Please send all issues to the issue tracker on the repo. 
+
+##Credits
+Part of the UI was taken and moddified from https://github.com/LazyAlgorithm/ElDewritoWebUI 
   
 ## Screenshot
 ![alt text](https://i.imgur.com/E5rt7up.png)
