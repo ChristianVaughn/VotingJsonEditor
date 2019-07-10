@@ -24,7 +24,7 @@ npm start
 
 Please send all issues to the issue tracker on the repo. 
 
-##Credits
+## Credits
 Part of the UI was taken and moddified from https://github.com/LazyAlgorithm/ElDewritoWebUI 
   
 ## Screenshot
