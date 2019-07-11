@@ -1,6 +1,6 @@
 # VotingJsonEditor
 
-**A WIP Program to edit and create Voting.json files for Eldewrito**
+**A WIP Program to edit and create Voting.json files for Eldewrito. Different than the one by NoShotz**
 
 
 
