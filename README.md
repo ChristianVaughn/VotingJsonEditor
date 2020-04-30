@@ -1,3 +1,4 @@
+#Don't use! There is security flaws with some of the nodejs packages used, and I haven't and probably wont get around to updating them.
 # VotingJsonEditor
 
 **A WIP Program to edit and create Voting.json files for Eldewrito. Different than the one by NoShotz**
