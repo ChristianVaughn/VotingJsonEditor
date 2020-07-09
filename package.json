@@ -40,6 +40,6 @@
   "dependencies": {
     "boostrap": "^2.0.0",
     "electron-updater": "^4.0.14",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   }
 }
