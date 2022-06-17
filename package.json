@@ -34,7 +34,7 @@
   "author": "Cvaughn55",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "electron": "^11.5.0",
+    "electron": "^15.5.5",
     "electron-builder": "^20.44.4"
   },
   "dependencies": {
